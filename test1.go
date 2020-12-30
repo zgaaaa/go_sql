@@ -23,9 +23,12 @@ func initDB() (err error) {
 	return nil
 }
 func main() {
+	defer db.Close()
 	err := initDB()
 	if err != nil {
 		fmt.Printf("连接失败 err = %v", err)
+	}else {
+		fmt.Println("连接成功")
 	}
-
+	
 }
